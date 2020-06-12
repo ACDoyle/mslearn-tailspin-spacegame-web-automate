@@ -82,6 +82,8 @@ stages:
 
         # Write terraform.tfvars.
         echo 'resource_group_location = "'$(ResourceGroupLocation)'"' | tee terraform.tfvars
+        echo 'app_service_plan_name' = "'$(ServicePlan)'" | tee terraform.tfvars
+        
         # Write backend.tfvars.
         echo 'resource_group_name = "tf-storage-rg"' | tee backend.tfvars
         echo 'storage_account_name = "'$(StorageAccountName)'"' | tee -a backend.tfvars
